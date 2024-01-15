@@ -3,3 +3,29 @@
     text-align: center;
     padding-bottom: 10px
 }
+.form-container{
+    display:flex;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    justify-content: center
+}
+label{
+    padding-right: 10px;
+    display: table-cell;
+}
+.user-input{
+    display: table-cell;
+    justify-content: center;
+    width: 175px
+}
+.table-row{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    width:max-content;
+    text-align: center
+}
+select{
+    width:175px;
+}

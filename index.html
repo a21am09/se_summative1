@@ -30,8 +30,32 @@
                         <label for="pupil-places">Places </label>
                         <input class="user-input" type="number" id="pupil-places" size="20">
                     </p>
+                    <br>
+                    <input class="button" type="submit" value="Calculate">
             </form>
             <br>
         </div>
+        <p>
+            <h3 id="school-size"></h3>
+        </p>
 </body>
+<script src="index.js"></script>
+<script>
+    const inputForm = document.getElementById("school-size-form");
+    const outputBox = document.getElementById("school-size");
+    let schoolTypeSelected = document.getElementById("school-type");
+    let pupilPlacesEntered = document.getElementById("pupil-places");
+
+    inputForm.addEventListener("submit", event => {
+        event.preventDefault();
+        let schoolSizeReturn = schoolSizeCalculate(schoolTypeSelected.value, pupilPlacesEntered.value);
+        if(!Number.isNaN(Number(schoolSizeReturn))) {
+            outputBox.innerHTML = "The minimum area required for this school is  " + schoolSizeReturn + "m^2";
+        }
+        else {
+            outputBox.innerHTML = schoolSizeReturn
+        }
+    }
+    )
+</script>
 </html>

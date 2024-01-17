@@ -17,6 +17,9 @@ describe('Suite to test behaviour of primary school calculation', () => {
     });
     test('that entering a string as the number of pupil places will return an error', () => {
         expect(schoolSizeCalculate(schoolType, "testing text")).toMatch(/Please enter the number/)
+    });
+    test('to recreate negative number of pupil places test result', () => {
+        expect(schoolSizeCalculate(schoolType, -5)).toBe(329.5)
     })
 });
 describe('Suite to test behaviour of secondary up to 16 school calculation', () => {
@@ -32,6 +35,9 @@ describe('Suite to test behaviour of secondary up to 16 school calculation', () 
     });
     test('that entering a string as the number of pupil places will return an error', () => {
         expect(schoolSizeCalculate(schoolType, "testing text")).toMatch(/Please enter the number/)
+    });
+    test('to confirm reported bug behaviour that negative pupil places returns an area smaller than the minimum school area', () => {
+        expect(schoolSizeCalculate(schoolType, -5)).toBeLessThan(1050)
     })
 });
 describe('Suite to test behaviour of secondary post 16 school calculation', () => {
@@ -47,5 +53,8 @@ describe('Suite to test behaviour of secondary post 16 school calculation', () =
     });
     test('that entering a string as the number of pupil places will return an error', () => {
         expect(schoolSizeCalculate(schoolType, "testing text")).toMatch(/Please enter the number/)
+    });
+    test('to confirm reported bug behaviour that negative pupil places returns an area smaller than the minimum school area', () => {
+        expect(schoolSizeCalculate(schoolType, -5)).toBeLessThan(1400)
     })
 });
